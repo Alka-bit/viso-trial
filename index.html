@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Visotonics — AI Container Inspection Intelligence</title>
+  <meta name="description" content="Visotonics deploys computer vision to inspect, grade and digitize shipping containers in real time — damage detection, OCR and digital twin reconstruction at terminal scale." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- ===================== LOADING SCREEN ===================== -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-mark">
+        <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
+          <path d="M6 12 L24 4 L42 12 L42 36 L24 44 L6 36 Z" stroke="#29d3ff" stroke-width="1.2" opacity="0.5"/>
+          <path d="M24 4 L24 44 M6 12 L42 36 M42 12 L6 36" stroke="#29d3ff" stroke-width="0.6" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="loading-label">VISOTONICS</div>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill" id="loading-bar-fill"></div>
+      </div>
+      <div class="loading-status" id="loading-status">Calibrating optical array…</div>
+    </div>
+  </div>
+
+  <!-- ===================== APP ROOT ===================== -->
+  <div id="app">
+
+    <!-- WebGL canvas mount -->
+    <canvas id="scene-canvas"></canvas>
+
+    <!-- CSS2D mount for OCR / damage labels -->
+    <div id="label-layer"></div>
+
+    <!-- ===================== TOP NAV ===================== -->
+    <header class="nav">
+      <div class="nav-mark">
+        <span class="nav-mark-glyph">◈</span>
+        <span class="nav-mark-text">VISOTONICS</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" class="nav-link is-active">Platform</a>
+        <a href="#" class="nav-link">Inspection</a>
+        <a href="#" class="nav-link">Terminals</a>
+        <a href="#" class="nav-link">Docs</a>
+      </nav>
+      <button class="nav-cta">Request Access</button>
+    </header>
+
+    <!-- ===================== HERO COPY ===================== -->
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Computer vision for maritime logistics
+      </div>
+      <h1 class="hero-title">
+        Every container,<br />
+        <span class="hero-title-accent">inspected by light.</span>
+      </h1>
+      <p class="hero-sub">
+        Visotonics scans, grades and digitizes containers at terminal speed —
+        surfacing damage, reading markings and rebuilding a live digital twin
+        before the crane finishes its cycle.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary">See it inspect a container</button>
+        <button class="btn-ghost">Read the technical brief →</button>
+      </div>
+    </section>
+
+    <!-- ===================== HUD OVERLAY PANELS ===================== -->
+    <div class="hud">
+      <div class="hud-panel hud-panel--tl" id="hud-mode">
+        <div class="hud-label">SYSTEM MODE</div>
+        <div class="hud-value" id="hud-mode-value">SURFACE SCAN</div>
+      </div>
+
+      <div class="hud-panel hud-panel--tr" id="hud-confidence">
+        <div class="hud-label">MODEL CONFIDENCE</div>
+        <div class="hud-value" id="hud-confidence-value">—</div>
+        <div class="hud-meter"><div class="hud-meter-fill" id="hud-confidence-meter"></div></div>
+      </div>
+
+      <div class="hud-panel hud-panel--bl" id="hud-container-id">
+        <div class="hud-label">CONTAINER ID</div>
+        <div class="hud-value hud-mono" id="hud-container-id-value">MSKU 128773 4</div>
+      </div>
+
+      <div class="hud-panel hud-panel--br" id="hud-log">
+        <div class="hud-label">INSPECTION LOG</div>
+        <ul class="hud-log-list" id="hud-log-list"></ul>
+      </div>
+    </div>
+
+    <!-- ===================== FOOTER TICKER ===================== -->
+    <div class="ticker">
+      <div class="ticker-track" id="ticker-track">
+        <span>DAMAGE DETECTION</span><span>·</span>
+        <span>OCR EXTRACTION</span><span>·</span>
+        <span>DIGITAL TWIN RECONSTRUCTION</span><span>·</span>
+        <span>CORROSION GRADING</span><span>·</span>
+        <span>FLEET-SCALE THROUGHPUT</span><span>·</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
