@@ -1,0 +1,19 @@
+{
+  "name": "visotonics-container-inspection",
+  "version": "1.0.0",
+  "description": "Premium Three.js hero experience for Visotonics — AI-powered container inspection, digital twin, OCR and damage detection visualization.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.169.0",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "lil-gui": "^0.19.2",
+    "vite": "^5.4.8"
+  }
+}
